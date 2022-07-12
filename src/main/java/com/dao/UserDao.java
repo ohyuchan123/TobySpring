@@ -29,7 +29,7 @@ public class UserDao {
     public User get(String id) throws ClassNotFoundException, SQLException {
         User user = new User();
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection c = DriverManager.getConnection(
                 "jdbc:mysql://localhost/myshop","root","ikok9636*"
         );
