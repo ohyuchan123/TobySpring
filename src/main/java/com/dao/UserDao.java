@@ -12,7 +12,7 @@ public abstract class UserDao {
     //본체가 있는 메소드는 abstract 키워드를 가질 수 없다. ex) public abstract int c() {System.out.println("hello");}
     //추상 클래스 내에는 추상 메소드가 아닌 메소드가 존재할 수 없다.
     public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
-
+    // -> 구현 코드는 제거되고 추상 메소드로 바뀌었다 메소드의 구현은 서브 클래스가 담당한다.
 
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = getConnection();
