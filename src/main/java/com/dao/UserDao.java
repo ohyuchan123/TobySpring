@@ -4,16 +4,15 @@ import com.domain.User;
 
 import java.sql.*;
 
-public class UserDao {
+public abstract class UserDao {
 
     // 중복된 코드를 독립적인 메소드로 만들어서 중복을 제거했다.
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/myshop"
-                ,"root","ikok9636*");
+    //abstract는 안에 내용이 있으면 안되기 떄문에 ;를 해준다.
 
-        return c;
-    }
+    //본체가 있는 메소드는 abstract 키워드를 가질 수 없다. ex) public abstract int c() {System.out.println("hello");}
+    //추상 클래스 내에는 추상 메소드가 아닌 메소드가 존재할 수 없다.
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+
 
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = getConnection();
