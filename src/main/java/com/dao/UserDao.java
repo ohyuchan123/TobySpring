@@ -7,10 +7,10 @@ import java.sql.*;
 //public abstract class UserDao
 public class UserDao {
 
-    private ConnectionMaker connectionMaker;
+    private SimpleConnectionMaker connectionMaker;
 
     public UserDao() {
-        connectionMaker = new ConnectionMaker();
+        connectionMaker = new SimpleConnectionMaker();
         //-> 상태를 관리하는 것도 아니니 한 번만 만들어 인스턴스
         // 변수에 저장해 두고 메소드에서 사용하게 한다.
     }
