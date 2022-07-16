@@ -7,12 +7,18 @@ import java.sql.*;
 //public abstract class UserDao
 public class UserDao {
 
-    private SimpleConnectionMaker connectionMaker;
+    private ConnectionMaker connectionMaker; //-> 인터페이스를 통해 오브젝트에 접근하므로
+                                            // 구체적인 클래스 정보를 알 필요가 없다.
+
+//    private SimpleConnectionMaker connectionMaker;
 
     public UserDao() {
-        connectionMaker = new SimpleConnectionMaker();
+//        connectionMaker = new SimpleConnectionMaker();
         //-> 상태를 관리하는 것도 아니니 한 번만 만들어 인스턴스
         // 변수에 저장해 두고 메소드에서 사용하게 한다.
+
+        connectionMaker = new NConnectionMaker();
+        //-> 클래스 이름
     }
 
     // 중복된 코드를 독립적인 메소드로 만들어서 중복을 제거했다.
@@ -25,6 +31,7 @@ public class UserDao {
 
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = connectionMaker.makeConnection();
+        //-> 인터페이스에 정의된 메소드를 사용하므로 클래스가 바뀐다고 해도 메소드 이름이 변경될 걱정은 없다.
         PreparedStatement ps = c.prepareStatement(
                 "insert into users(id,name,password) values (?,?,?)"
         );
