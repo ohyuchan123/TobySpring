@@ -10,7 +10,8 @@ import static org.junit.Assert.*;
 public class UserDaoTest {
     @Test
     public void addAndGet() throws SQLException, ClassNotFoundException {
-        UserDao userDao = new NUserDao();
+//        UserDao userDao = new NUserDao();
+        UserDao userDao = new UserDao();
         User user = new User();
         user.setId("0");
         user.setName("yuchan");
