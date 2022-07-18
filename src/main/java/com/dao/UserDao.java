@@ -12,13 +12,15 @@ public class UserDao {
 
 //    private SimpleConnectionMaker connectionMaker;
 
-    public UserDao() {
+    public UserDao(ConnectionMaker connectionMaker) {
 //        connectionMaker = new SimpleConnectionMaker();
         //-> 상태를 관리하는 것도 아니니 한 번만 만들어 인스턴스
         // 변수에 저장해 두고 메소드에서 사용하게 한다.
 
-        connectionMaker = new NConnectionMaker();
+//        connectionMaker = new NConnectionMaker();
         //-> 클래스 이름
+
+        this.connectionMaker = connectionMaker;
     }
 
     // 중복된 코드를 독립적인 메소드로 만들어서 중복을 제거했다.

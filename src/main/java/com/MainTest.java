@@ -1,5 +1,6 @@
 package com;
 
+import com.dao.NConnectionMaker;
 import com.dao.UserDao;
 import com.domain.User;
 
@@ -10,7 +11,7 @@ public class MainTest {
     // 이 클래스를 실행하면 즉 main() 메소드가 등록 성공,조회 성공과 같은 테스트 성공
     // 메세지를 얻을 수 있다.
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new UserDao();
+        UserDao userDao = new UserDao(new NConnectionMaker());
 
         User user = new User();
         user.setId("oyc");

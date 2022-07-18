@@ -11,7 +11,7 @@ public class UserDaoTest {
     @Test
     public void addAndGet() throws SQLException, ClassNotFoundException {
 //        UserDao userDao = new NUserDao();
-        UserDao userDao = new UserDao();
+        UserDao userDao = new UserDao(new NConnectionMaker());
         User user = new User();
         user.setId("0");
         user.setName("yuchan");
