@@ -10,8 +10,15 @@ import static org.junit.Assert.*;
 public class UserDaoTest {
     @Test
     public void addAndGet() throws SQLException, ClassNotFoundException {
+
+        DaoFactory daoFactory = new DaoFactory();
+
 //        UserDao userDao = new NUserDao();
-        UserDao userDao = new UserDao(new NConnectionMaker());
+//        UserDao userDao = new UserDao(new NConnectionMaker());
+
+        UserDao userDao = daoFactory.userDao();
+        // UserDao userDao = new daoFactory().userDao();
+
         User user = new User();
         user.setId("0");
         user.setName("yuchan");
